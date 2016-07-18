@@ -8,7 +8,7 @@ var gulp = require('gulp'), // gulp
 	htmlhint = require("gulp-htmlhint"),
 	livereload = require('gulp-livereload'),
 	connect = require('gulp-connect'),
-	jade = require('gulp-jade'), // jade
+	pug = require('gulp-pug'), // pug
 	sourcemaps = require('gulp-sourcemaps'); // Reload
 
 var path = {
@@ -24,10 +24,9 @@ var path = {
 		css: 'app/css',
 		main: 'app/css/*',
 		img: 'app/img/*',
-		html: 'app/*.html',
-		jade: 'app/jade/*.jade',
-		jadeWatch: 'app/jade/**/*.jade',
-		jadeDest: 'app/'
+		html: 'app/html/*.html',
+		pug: 'app/pug/**/*.pug',
+		pugDest: 'app/html/'
 	}
 }
 
@@ -76,10 +75,30 @@ gulp.task('html', function () {
 		.pipe(connect.reload());
 });
 
-gulp.task('jade', function() {
-	return gulp.src(path.src.jade)
-		.pipe(jade({pretty: true}))
-		.pipe(gulp.dest(path.src.jadeDest))
+gulp.task('pug', function() {
+	return gulp.src(path.src.pug)
+		.pipe(pug({
+			pretty: true,
+			locals: {
+				cssPath: '../css/',
+				jsPath: '../js/',
+				imgPath: '../img/'
+			}
+		}))
+		.pipe(gulp.dest(path.src.pugDest))
+});
+
+gulp.task('pug:build', function() {
+	return gulp.src(path.src.pug)
+		.pipe(pug({
+			pretty: true,
+			locals: {
+				cssPath: 'css/',
+				jsPath: 'js/',
+				imgPath: 'img/'
+			}
+		}))
+		.pipe(gulp.dest(path.src.pugDest))
 });
 
 gulp.task('fonts:build', function() {
@@ -98,17 +117,18 @@ gulp.task('connect', function() {
 gulp.task('watch', function () {
 	gulp.watch(path.src.scss, ['sass']);
 	gulp.watch(path.src.js, ['js']);
-	gulp.watch(path.src.jadeWatch, ['jade']);
+	gulp.watch(path.src.pug, ['pug']);
 	gulp.watch(path.src.html, ['html']);
 });
 
-gulp.task('default', ['connect', 'html', 'jade', 'sass', 'js', 'watch']);
+gulp.task('default', ['connect', 'html', 'pug', 'sass', 'js', 'watch']);
 
 // Сборка проекта
 gulp.task('b', function() {
-	gulp.run('html:build');
+	gulp.run('pug:build');
 	gulp.run('csso:build');
 	gulp.run('js:build');
 	gulp.run('img:build');
 	gulp.run('fonts:build');
+	gulp.run('html:build');
 });
