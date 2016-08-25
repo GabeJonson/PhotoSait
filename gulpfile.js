@@ -17,17 +17,17 @@ var path = {
 		css: 'build/css',
 		img: 'build/img',
 		html: 'build/',
-		fonts: './app/fonts/*'
+		fonts: './src/fonts/*'
 	},
 	src: {
-		js: 'app/js/*.js',
-		scss: 'app/sass/**/*.scss',
-		css: 'app/css',
-		main: 'app/css/*',
-		img: 'app/img/*',
-		html: 'app/html/*.html',
-		pug: 'app/pug/**/*.pug',
-		pugDest: 'app/html/',
+		js: 'src/js/*.js',
+		scss: 'src/sass/**/*.scss',
+		css: 'src/css',
+		main: 'src/css/*',
+		img: 'src/img/*',
+		html: 'src/html/*.html',
+		pug: 'src/pug/**/*.pug',
+		pugDest: 'src/html/',
 		fonts: './build/fonts/'
 	}
 }
@@ -110,7 +110,7 @@ gulp.task('fonts:build', function() {
 
 gulp.task('connect', function() {
 	connect.server({
-		root: 'app',
+		root: 'src',
 		port: 9000,
 		livereload: true
 	});
