@@ -16,7 +16,8 @@ var path = {
 		js: 'build/js',
 		css: 'build/css',
 		img: 'build/img',
-		html: 'build/'
+		html: 'build/',
+		fonts: './app/fonts/*'
 	},
 	src: {
 		js: 'app/js/*.js',
@@ -26,7 +27,8 @@ var path = {
 		img: 'app/img/*',
 		html: 'app/html/*.html',
 		pug: 'app/pug/**/*.pug',
-		pugDest: 'app/html/'
+		pugDest: 'app/html/',
+		fonts: './build/fonts/'
 	}
 }
 
@@ -65,7 +67,7 @@ gulp.task('img:build', function() {
 		.pipe(gulp.dest(path.build.img));
 });
 
-gulp.task('html:build', function () {
+gulp.task('html:build', ['pug:build'], function () {
 	gulp.src(path.src.html)
 		.pipe(gulp.dest(path.build.html));
 });
@@ -102,8 +104,8 @@ gulp.task('pug:build', function() {
 });
 
 gulp.task('fonts:build', function() {
-	return gulp.src('./app/fonts/*')
-		.pipe(gulp.dest('./build/fonts/'))
+	return gulp.src(path.src.fonts)
+		.pipe(gulp.dest(path.build.fonts))
 });
 
 gulp.task('connect', function() {
@@ -125,10 +127,9 @@ gulp.task('default', ['connect', 'html', 'pug', 'sass', 'js', 'watch']);
 
 // Сборка проекта
 gulp.task('b', function() {
-	gulp.run('pug:build');
+	gulp.run('html:build');
 	gulp.run('csso:build');
 	gulp.run('js:build');
 	gulp.run('img:build');
 	gulp.run('fonts:build');
-	gulp.run('html:build');
 });
