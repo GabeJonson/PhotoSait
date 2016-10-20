@@ -8,6 +8,7 @@ var gulp = require('gulp'), // gulp
 	htmlhint = require("gulp-htmlhint"),
 	livereload = require('gulp-livereload'),
 	connect = require('gulp-connect'),
+	globImporter = require('sass-glob-importer'), // global import sass files
 	pug = require('gulp-pug'), // pug
 	sourcemaps = require('gulp-sourcemaps'); // Reload
 
@@ -46,6 +47,7 @@ gulp.task('js', function () {
 gulp.task('sass', function () {
 	gulp.src(path.src.scss)
 		.pipe(sourcemaps.init())
+		.pipe(sass({ importer: globImporter() }))
 		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer({
 			browsers: ['last 5 versions'],
