@@ -58,6 +58,7 @@ gulp.task('sass', function () {
 
 gulp.task('csso:build', function () {
     return gulp.src(path.src.main)
+        .pipe(cssmin())
         .pipe(gulp.dest(path.build.css));
 });
 
