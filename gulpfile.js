@@ -6,6 +6,7 @@ var gulp = require('gulp'), // gulp
     sass = require('gulp-sass'), // Sass
     autoprefixer = require('gulp-autoprefixer'),
     htmlhint = require("gulp-htmlhint"),
+    cssmin = require('gulp-cssmin'), // minify css
     livereload = require('gulp-livereload'),
     connect = require('gulp-connect'),
     pug = require('gulp-pug'), // pug
