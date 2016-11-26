@@ -1,0 +1,13 @@
+// neat
+$gutter: 0.938em !default;
+$column: 6.250em !default;
+$max-width: 1200px !default;
+$visual-grid: true !default;
+$visual-grid-color: #f33 !default;
+$visual-grid-index: front !default; // front
+
+// normalize
+$base-font-size: 16px !default;
+$base-line-height: 16px !default;
+$base-unit: 'px' !default; // px, em, rem.
+$normalize-vertical-rhythm: true !default; // true
