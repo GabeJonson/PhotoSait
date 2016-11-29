@@ -4,7 +4,7 @@
   "description": "Description",
   "main": "src/html/index.html",
   "scripts": {
-    "load": "npm install && bower install",
+    "test": "npm install && bower install",
     "start": "gulp",
     "build": "rm -rf build && gulp b"
   },
