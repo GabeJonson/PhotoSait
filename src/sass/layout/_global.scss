@@ -4,9 +4,10 @@
 	box-sizing: border-box;
 }
 
-.container {@include outer-container;}
-
-.wrap-container {@include row;}
+.wrap-container {
+	@include outer-container;
+	@include row;
+}
 
 li {list-style: none;}
 
