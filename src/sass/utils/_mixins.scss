@@ -13,6 +13,11 @@
   max-height: $h;
 }
 
+@mixin omega-reset($nth) {
+  &:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+  &:nth-child(#{$nth}+1) { clear: none }
+}
+
 @mixin horizontal-center {
   left: 50%;
   transform: translateX(-50%);
