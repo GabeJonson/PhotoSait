@@ -15,7 +15,7 @@ a[href] {text-decoration: none;}
 
 figure {margin: 0;}
 
-img {
+.image-container img {
 	@include size(100%, auto);
 	display: block;
 }
