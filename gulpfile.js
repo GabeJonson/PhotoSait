@@ -10,6 +10,7 @@ var gulp = require('gulp'), // gulp
     livereload = require('gulp-livereload'),
     connect = require('gulp-connect'),
     pug = require('gulp-pug'), // pug
+    babel = require('gulp-babel'), // babel
     sourcemaps = require('gulp-sourcemaps'); // Reload
 
 var path = {

@@ -10,19 +10,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "Link 2 project repository"
+    "url": "https://github.com/GabeJonson/PhotoSait"
   },
   "author": "http://vk.com/gabejonson",
   "homepage": "Home page of repository",
   "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
+    "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.0",
     "gulp-connect": "^5.0.0",
+    "gulp-cssmin": "^0.1.7",
     "gulp-csso": "^2.0.0",
     "gulp-html-validator": "0.0.5",
     "gulp-htmlhint": "^0.3.1",
-    "gulp-cssmin": "^0.1.7",
     "gulp-imagemin": "^3.0.3",
     "gulp-livereload": "^3.8.1",
     "gulp-pug": "^3.1.0",

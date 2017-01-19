@@ -1,0 +1,55 @@
+.logo-container {
+  .wrap-container { @include size(100%, 100vh); }
+
+  figure {
+    @include row;
+    text-align: center;
+    @include absolute-center;
+    @include transition(1s);
+
+    &.to-top-figure {
+      top: 30px;
+      left: 30px;
+
+      img { @include size(50px); }
+
+      figcaption {
+        @include font(16px);
+        @include vertical-center;
+        right: -50px;
+      }
+    }
+    
+    img {
+      @include size(400px);
+      border-radius: 50%;
+      background-color: #f33;
+      @include transition(1s);
+    }
+
+    figcaption {
+      @include font(60px);
+      text-transform: uppercase;
+      position: absolute;
+      top: 100%;
+      right: 50%;
+      transform: translateX(50%);
+      @include transition(1s);
+    }
+  }
+
+  .content {
+    @include size(80%, auto);
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    @include transition(1s);
+
+    &.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}

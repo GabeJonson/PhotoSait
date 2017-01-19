@@ -1,9 +1,11 @@
 mixin img(file_name)
 	img(src=imgPath + file_name, alt="")&attributes(attributes)
 
-mixin figure(file_name)
+mixin figure(file_name, figcaption)
 	figure.image-container&attributes(attributes)
 		+img(file_name)
+		if figcaption
+			figcaption= figcaption
 
 mixin list-link(href, text)
 	li&attributes(attributes)

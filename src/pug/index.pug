@@ -1,3 +1,10 @@
-include elements/_top_document
-  block content
-    include elements/_bottom_document
+doctype html
+html(lang="ru")
+    head
+        include elements/_head
+    body
+        include parts/_fisrt-part
+        include parts/_content
+        include elements/_header
+
+        include elements/_bottom_document

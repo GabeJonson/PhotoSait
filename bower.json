@@ -16,6 +16,7 @@
   ],
   "devDependencies": {
     "neat": "^1.8.0",
-    "normalize-scss": "normalize.scss#^6.0.0"
+    "normalize-scss": "normalize.scss#^6.0.0",
+    "components-font-awesome": "^4.7.0"
   }
 }

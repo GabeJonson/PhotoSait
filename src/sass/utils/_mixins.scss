@@ -31,6 +31,18 @@
 @mixin absolute-center {
   position: absolute;
   top: 50%;
-  left: 50px;
+  left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@mixin font($size, $weight: normal, $line-height: 1) {
+  font: {
+    size: $size;
+    weight: $weight;
+  }
+  line-height: $line-height;
+}
+
+@mixin transition($time: 0.3s, $timing: ease, $elements: all) {
+  transition: $elements $time $timing;
 }
